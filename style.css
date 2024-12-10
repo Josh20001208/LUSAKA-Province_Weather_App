@@ -1,0 +1,329 @@
+body {
+    margin: 0;
+    padding: 20px; 
+    font-family: Arial, sans-serif;
+    background: url(img/pexels-media-3976320.jpeg);    /*  default background before weather display */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    text-align: center;
+}
+
+/* Overlay styling for all backgrounds */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Default dark overlay */
+    pointer-events: none; /* Allows interactions with elements beneath */
+    z-index: 1;
+}
+
+.container, .weather-app, footer, #currentWeather, #forecastDays {
+    position: relative;
+    z-index: 2; /* Ensures content is above overlay */
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    color: #f3efeffb;
+}
+
+h1, h2  {                       /*  heading */
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #f7f4f4;
+    font-style: italic;
+}
+
+h4 {                         /*  error display e.g "city not found" */
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color:red;
+    font-family: 'Arial Narrow Bold',sans-serif;
+}
+
+input {                   /* search bar*/
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    width: 70%;
+    max-width: 400px;
+    margin-bottom: 10px;
+}
+
+
+/* BUTTONS SECTION */
+
+button {                           /* styling for the buttons */
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.08);       /* adds hover effect on button */
+    
+}
+
+button:active {
+    background-color: #3e8e41;
+    transform: scale(0.95);
+}    
+
+.conversion-button {
+    margin-left: -1150px;  /* moves button to the left */
+    margin-top: -48px; /* moves button to the top left */
+    
+ 
+}
+
+
+.home-button {
+    
+    margin-left: 1150px;     
+    margin-top: -43px;       /* moves button to the top right */
+    
+}
+
+.home {                                    /* home buttton */
+
+    background: url(icons/background.png);
+    background-size: 40px 40px; 
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.home:hover {
+    transform: scale(1.08); /* adds hover effect on button */
+    
+}
+
+.home:active {
+    transform: scale(0.95);
+
+}
+
+
+/*         WEATHER DISPLAY SECTION      */
+
+.weather-app {
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: x-large;
+    color: #f7f4f4;
+}
+
+#currentWeather h2 {             /*  heading */
+    font-size: 10px; 
+    margin-bottom: 10px;
+    color: #ece5e5de;
+}
+
+#currentWeather {               /* current weather display */
+    margin-top: 30px;
+    color: #fcf9f9;
+    font-size: x-large;
+}
+
+
+#forecast h2 {               /*  heading */
+    margin-top: 40px;      /* adds space from the top of the page*/
+    margin-bottom: 20px;    /* adds space from the botton of the page*/
+}
+
+#forecastDays {               /*  5-day weather display */
+    padding: 16px;
+    margin: 10px; 
+    border-radius: 19%;
+    text-align: center; 
+    font-size: x-large;
+    display: flex;             /* stretches the contents in a row*/
+    justify-content: center;   /* centers the forcast days */
+    gap: 100px;              /* adds space between the focast days */
+    flex-wrap: nowrap;       /* makes sure all contents are in one single row*/
+    color: white;
+}
+
+
+
+/*                 BACKGROUNDS SECTION                     */
+
+/* Default background */
+body.default-weather {
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    color: #fff;
+}
+
+/* Clear sky background */
+body.clear {
+    background: url('img/pexels-media-1049298.jpeg') no-repeat center center fixed;
+    color: #333;
+    background-size: cover;
+}
+body.clear::before {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Sunny background */
+body.sunny {
+    background: url('img/pexels-media-259280.jpeg') no-repeat center center fixed;
+    color: #333;
+    background-size: cover;
+}
+body.sunny::before {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Cloudy background */
+body.cloudy {
+    background: url('img/pexels-media-1903364.jpeg') no-repeat center center fixed;
+    color: #333;
+    background-size: cover;
+}
+body.cloudy::before {
+    background: rgba(0, 0, 0, 0.4); /* Darker overlay */
+}
+
+/* Rainy background */
+body.rainy {
+    background: url('img/pexels-media-52851.jpeg') no-repeat center center fixed;
+    color: #fff;
+    background-size: cover;
+}
+body.rainy::before {
+    background: rgba(0, 0, 100, 0.4); /* Blue tint for rainy */
+}
+
+/* Haze and smoke background */
+body.haze {
+    background: url('img/pexels-media-1165991.jpeg') no-repeat center center fixed; 
+    color: #fff;
+    background-size: cover;
+}
+body.haze::before {
+    background: rgba(0, 0, 100, 0.4); /* Blue tint for haze */
+}
+
+/* mist background */
+body.mist {
+    background: url('img/pexels-media-2080963.jpeg') no-repeat center center fixed; 
+    color: #fff;
+    background-size: cover;
+}
+body.mist::before {
+    background: rgba(0, 0, 100, 0.5); /* Blue tint for mist */
+}
+
+/* Snowy background */
+body.snowy {
+    background: url('img/pexels-media-36478.jpeg') no-repeat center center fixed;
+    color: #333;
+    background-size: cover;
+}
+body.snowy::before {
+    background: rgba(0, 0, 0, 0.3); /* Light overlay for snowy */
+}
+
+
+/*    FOOTER SECTION      */
+
+footer {
+    margin-top: 90px;
+    color: #f7f4f4e8;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+footer ul li a {
+    color: #fdfdfde8;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}
+
+
+
+/*     RESPONSIVE DESIGN SECTION          */
+
+@media (max-width: 768px) {    /* For tablets and small screens */
+    
+    body {
+        padding: 10px;
+    }
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+    h4 {
+        font-size: 1.5rem;
+    }
+    input {
+        width: 70%;
+    }
+    button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    .conversion-button, .home-button {
+        margin-right: 0;
+        margin-left: 0; /* Centers these buttons */
+        margin-top: 10px;
+    }
+    #forecastDays {
+        flex-wrap: wrap; /* Wrap forecast items for smaller screens */
+        gap: 20px; /* Reduced gap for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {         /* For mobile devices */
+                                     
+    h1, h2 {
+        font-size: 1.2rem;
+    }
+    h4 {
+        font-size: 1.2rem;
+    }
+    input {
+        width: 60%;
+        font-size: 0.9rem;
+    }
+    button {
+        font-size: 0.8rem;
+    }
+    #forecastDays {
+        flex-direction: column; /* Stack forecast items vertically */
+        align-items: center;
+        gap: 15px;
+    }
+    footer {
+        font-size: 0.8rem;
+    }
+}

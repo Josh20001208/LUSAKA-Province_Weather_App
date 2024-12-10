@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lusaka Weather App</title>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+    <nav>
+
+    </nav>
+    
+    <div class="weather-app">
+        <div class="search-bar">
+            <input type="text" id="city-input" placeholder="Enter city name">
+            <button onclick="fetchWeatherByCity()">Search</button>
+            
+        </div>
+         
+        <div class="conversion-button">
+            
+            <button id="unit-toggle" onclick="toggleUnit()">Switch to °F</button>
+        
+        </div> 
+
+        <div class="home-button">
+            <a href="index.html">
+                <img class="home" src="icons/home.png" height="50px" width="50px" alt="home"></a>
+        </div>
+
+        
+
+        
+        <div id="weather-display">
+            <h4 id="error-message"></h3>
+            <h2 id="city-name">Weather in Lusaka</h2>
+            
+
+            <p id="time">Loading time...</time></p>
+
+            
+            <div class="weather-info">
+                <img id="weather-icon" alt="Weather Icon">
+                <p id="temperature"></p>
+                <p id="condition"></p>
+                <p>Humidity: <span id="humidity"></span>%</p>
+                <p>Wind: <span id="wind"></span> km/h</p>
+            </div>
+        </div>
+        
+       
+
+        <div id="forecast">
+            <h2>5-Day Forecast</h2>
+            <div id="forecastDays"></div>
+        </div>
+    </div>
+
+
+    
+    <footer>
+        <span class="copyright">&COPY; Chilenje Ward . All Rights Reserved. Designed and Maintained By Joshua Mubanga, SIN: 2310252910</span>
+        <ul>
+            <li><a href="https://zrdc.org/">ZRDC</a></li>
+            <li><a href="https://www.icuzambia.net/">ICU Zambia</a></li>
+        </ul>
+    </footer>
+
+    <script src="script.js"></script>
+
+    
+</body>
+</html>
